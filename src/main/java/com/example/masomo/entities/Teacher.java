@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int teacherId;
     private String fullName;
     @Column(name = "TeachersNumber",unique = true)
     private String TSCNo;
@@ -22,4 +22,8 @@ public class Teacher {
     private String email;
     @Column(name = "PhoneNumber",unique = true)
     private String mobileNumber;
+
+    //Teacher has Single Subject
+    @OneToOne(mappedBy = "teacher")
+    private Subject subject;
 }
