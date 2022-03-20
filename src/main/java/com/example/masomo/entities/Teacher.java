@@ -16,6 +16,10 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String fullName;
+    @Column(name = "TeachersNumber",unique = true)
     private String TSCNo;
+    @Column(name = "userEmail", unique = true)
     private String email;
+    @Column(name = "PhoneNumber",unique = true)
+    private String mobileNumber;
 }

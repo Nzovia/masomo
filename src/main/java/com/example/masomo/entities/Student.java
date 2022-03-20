@@ -17,6 +17,7 @@ public class Student {
     private int studentId;
     private String studyLevel;
     private String fullName;
+    @Column(name = "admissionNumber", unique = true)
     private String registrationNumber;
 
 }
