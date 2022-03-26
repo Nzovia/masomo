@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class StudentService {
     @Autowired
@@ -32,8 +33,8 @@ public class StudentService {
     }
 
     //fetch data for students in a given  class
-    public Student getStudentsClass( String studyLevel) {
-        return studentRepository.findByForm( studyLevel);
+    public Student getStudentsClass(String studyLevel) {
+        return studentRepository.findByStudyLevel(studyLevel);
     }
 
     //deleting Student data

@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Class/Form")
+@Table(name = "ClassForm")
 
 public class levelOfStudy {
     @Id
@@ -20,7 +20,7 @@ public class levelOfStudy {
     private String className;
     private String studentsNumber;
 
-    @OneToMany(mappedBy = "levelOfStudy")
-    private List<Student> students;
+//    @OneToMany(mappedBy = "levelOfStudy")
+//    private List<Student> students;
 
 }

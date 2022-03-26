@@ -23,7 +23,7 @@ public class Teacher {
     @Column(name = "PhoneNumber",unique = true)
     private String mobileNumber;
 
-    //Teacher has Single Subject
-    @OneToOne(mappedBy = "teacher")
-    private Subject subject;
+//    //Teacher has Single Subject
+//    @OneToOne(mappedBy = "teacher")
+//    private Subject subject;
 }

@@ -17,14 +17,14 @@ public class Subject {
     @Column(unique = true)
     private String subjectCode;
     private String subjectName;
-    @OneToOne
-    @JoinColumn(name = "teacherId")
-    private Teacher teacher;
-
-    //many subjects are studied by one student
-    @ManyToOne
-    @JoinColumn(name = "studentId")
-    private Student student;
+//    @OneToOne
+//    @JoinColumn(name = "teacherId")
+//    private Teacher teacher;
+//
+//    //many subjects are studied by one student
+//    @ManyToOne
+//    @JoinColumn(name = "studentId")
+//    private Student student;
 
 
 }
