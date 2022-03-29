@@ -34,7 +34,7 @@ public class StudentService {
 
     //fetch data for students in a given  class
     public Student getStudentsClass(String studyLevel) {
-        return studentRepository.findByStudyLevel(studyLevel);
+        return (Student) studentRepository.findByStudyLevel(studyLevel);
     }
 
     //deleting Student data

@@ -13,7 +13,15 @@ import javax.persistence.*;
 @Table(name = "teachersData")
 public class Teacher {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "teacher_sequence",
+            sequenceName = "teacher_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "teacher_sequence"
+    )
     private int teacherId;
     private String fullName;
     @Column(name = "TeachersNumber",unique = true)
@@ -23,7 +31,12 @@ public class Teacher {
     @Column(name = "PhoneNumber",unique = true)
     private String mobileNumber;
 
-//    //Teacher has Single Subject
-//    @OneToOne(mappedBy = "teacher")
-//    private Subject subject;
+    //Teacher has Single Subject
+    @OneToOne
+    @JoinColumn(
+            name = "courseId",
+            referencedColumnName = "subjectId"
+
+    )
+    private Subject subject;
 }

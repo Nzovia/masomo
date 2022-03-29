@@ -16,7 +16,15 @@ import java.util.List;
 @Table(name = "Students")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName = "student_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
     private int studentId;
     private String studyLevel;
     private String fullName;
@@ -24,16 +32,16 @@ public class Student {
     private String registrationNumber;
 
 //    //One Student takes Many Subjects
-//    @OneToMany(mappedBy = "student")
-//    private List<Subject> subjects;
-//
+    @OneToMany(mappedBy = "student")
+    private List<Subject> subjects;
+
 //    //many students belong to the same level of Study
-//    @ManyToOne
-//    @JoinColumn(name = "classID")
-//    private levelOfStudy levelOfStudy;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "adminId")
-//    private ExamsAdmin examsAdmin;
+    @ManyToOne
+    @JoinColumn(name = "classID")
+    private LevelOfStudy levelOfStudy;
+
+    @ManyToOne
+    @JoinColumn(name = "adminId")
+    private ExamsAdmin examsAdmin;
 
 }

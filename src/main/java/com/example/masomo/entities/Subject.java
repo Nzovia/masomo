@@ -12,19 +12,25 @@ import javax.persistence.*;
 @Table(name = "SubjectDetails")
 public class Subject {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "subject_sequence",
+            sequenceName = "subject_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "subject_sequence"
+    )
     private int subjectId;
     @Column(unique = true)
     private String subjectCode;
     private String subjectName;
-//    @OneToOne
-//    @JoinColumn(name = "teacherId")
-//    private Teacher teacher;
-//
-//    //many subjects are studied by one student
-//    @ManyToOne
-//    @JoinColumn(name = "studentId")
-//    private Student student;
+
+
+    //many subjects are studied by one student
+    @ManyToOne
+    @JoinColumn(name = "studentId")
+    private Student student;
 
 
 }

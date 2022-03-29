@@ -12,13 +12,22 @@ import java.util.List;
 @Table(name = "Admins")
 public class ExamsAdmin {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(
+            name = "examsAdmin_sequence",
+            sequenceName = "examsAdmin_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "examsAdmin_sequence"
+    )
     private int adminId;
     @Column(name= "adminEmail",unique = true)
     private String email;
     private String name;
     @Column(name = "adminRole")
     private String managerialRole;
-//    @OneToMany(mappedBy = "examsAdmin")
-//    private List<Student> students;
+
+    @OneToMany(mappedBy = "examsAdmin")
+    private List<Student> students;
 }
