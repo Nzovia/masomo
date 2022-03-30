@@ -1,5 +1,6 @@
 package com.example.masomo.entities;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "SubjectDetails")
 public class Subject {
     @Id
@@ -21,7 +23,7 @@ public class Subject {
             strategy = GenerationType.SEQUENCE,
             generator = "subject_sequence"
     )
-    private int subjectId;
+    private Long subjectId;
     @Column(unique = true)
     private String subjectCode;
     private String subjectName;

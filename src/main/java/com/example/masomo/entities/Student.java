@@ -25,7 +25,7 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-    private int studentId;
+    private Integer studentId;
     private String studyLevel;
     private String fullName;
     @Column(name = "admissionNumber", unique = true)

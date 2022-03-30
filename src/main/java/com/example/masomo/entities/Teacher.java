@@ -1,6 +1,7 @@
 package com.example.masomo.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "teachersData")
 public class Teacher {
     @Id
@@ -22,7 +24,7 @@ public class Teacher {
             strategy = GenerationType.SEQUENCE,
             generator = "teacher_sequence"
     )
-    private int teacherId;
+    private Long teacherId;
     private String fullName;
     @Column(name = "TeachersNumber",unique = true)
     private String TSCNo;
@@ -32,7 +34,9 @@ public class Teacher {
     private String mobileNumber;
 
     //Teacher has Single Subject
-    @OneToOne
+    @OneToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn(
             name = "courseId",
             referencedColumnName = "subjectId"
